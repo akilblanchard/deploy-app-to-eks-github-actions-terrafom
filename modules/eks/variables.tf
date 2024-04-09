@@ -8,7 +8,7 @@ variable "cluster_name" {
 variable "node_group_name" {
     type = string
     description = "Name of the EKS node group"
-}
+} 
 
 variable "instance_type" {
     type = list(string)
