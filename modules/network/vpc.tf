@@ -85,7 +85,7 @@ resource "aws_route_table_association" "PrivateRouteAssociation"{
 # NAT resources for the private subnet 
 resource "aws_eip" "nat" {
   count = length(var.public_cidr_block)
-  vpc = true
+  domain = "vpc"
 }
 
 resource "aws_nat_gateway" "default" {
