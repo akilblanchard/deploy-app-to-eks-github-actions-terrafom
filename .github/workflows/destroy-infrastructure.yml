@@ -29,11 +29,11 @@ jobs:
       #Terraform commands
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config=backend.tfvars
+        run: terraform init
 
 
       - name: Terraform Destroy
         id: destroy
         if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
         run: |
-          terraform destroy -var-file=backend.tfvars -auto-approve || echo "Terraform destroy complete, unable to rewrite state file as backend infrastrcutre is deleted."
+          terraform destroy --auto-approve || echo "Terraform destroy complete."
