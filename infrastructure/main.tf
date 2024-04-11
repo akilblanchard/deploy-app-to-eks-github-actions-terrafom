@@ -18,6 +18,6 @@ module "eks_cluster" {
   desired_size = 2
   max_size = 3
   min_size = 1
-  private_subnet_ids = module.my_vpc.private_subnets
-  public_subnet_ids  = module.my_vpc.public_subnets
+  private_subnet_ids = module.vpc.private_subnets
+  public_subnet_ids  = module.vpc.public_subnets
 }
