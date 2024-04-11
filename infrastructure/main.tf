@@ -8,3 +8,16 @@ module "vpc" {
   private_cidr_block = ["10.0.10.0/24","10.0.11.0/24", "10.0.12.0/24"]
   availability_zone  = ["us-east-1a","us-east-1b", "us-east-1c"]
 }
+
+module "eks_cluster" {
+  source = "./modules/eks"
+
+  cluster_name = "eks-cluster"
+  node_group_name = "private-nodes"
+  instance_type = ["t3.small"]
+  desired_size = 2
+  max_size = 3
+  min_size = 1
+  private_subnet_ids = module.my_vpc.private_subnets
+  public_subnet_ids  = module.my_vpc.public_subnets
+}
