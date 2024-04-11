@@ -61,12 +61,12 @@ resource "aws_iam_role_policy_attachment" "NodePolicy"{
 
 //Provides read-only access to ec2 container registry repository
 resource "aws_iam_role_policy_attachment" "ContainerRegistryReadOnly"{
-    policy_arn = "arn:aws:iam::policy/AmazonEC2ContainerRegistryReadOnly"
+    policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
     role = aws_iam_role.NodeRole.name
 }
 
 //Provides AWS VPC CNI Plugin to modify IP aadress configuration on Worker Nodes
 resource "aws_iam_role_policy_attachment" "CniPolicy" {
-    policy_arn = "arn:aws:iam::policy/AmzaonEKS_CNI_Policy"
+    policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
     role = aws_iam_role.NodeRole.name
 }
