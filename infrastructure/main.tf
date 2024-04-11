@@ -10,7 +10,7 @@ module "vpc" {
 }
 
 module "eks_cluster" {
-  source = "./modules/eks"
+  source = "../modules/eks"
 
   cluster_name = "eks-cluster"
   node_group_name = "private-nodes"
